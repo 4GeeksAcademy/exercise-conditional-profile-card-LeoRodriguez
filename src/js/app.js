@@ -29,11 +29,23 @@ function render(variables = {}) {
   let cover = `<div class="cover"><img src="${variables.background}" /></div>`;
   if (variables.includeCover == false) cover = "<div class='cover'></div>";
 
+  let name = variables.name;
+  let defaultName = "Your Name";
+  if (name === null) name = defaultName;
+
+  let lastName = variables.lastName;
+  let defaultlastName = "Your Last Name";
+  if (lastName === null) lastName = defaultlastName;
+
+  let socialMediaPosition = variables.socialMediaPosition;
+  if (socialMediaPosition === position - right)
+    socialMediaPosition.style.position = "right";
+
   // reset the website body with the new html output
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
           <img src="${variables.avatarURL}" class="photo" />
-          <h1>Lucy Boilett</h1>
+          <h1>${name}</h1>
           <h2>Web Developer</h2>
           <h3>Miami, USA</h3>
           <ul class="position-right">

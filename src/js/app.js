@@ -34,25 +34,56 @@ function render(variables = {}) {
   if (name === null) name = defaultName;
 
   let lastName = variables.lastName;
-  let defaultlastName = "Your Last Name";
+  let defaultlastName = " ";
   if (lastName === null) lastName = defaultlastName;
 
-  let socialMediaPosition = variables.socialMediaPosition;
-  if (socialMediaPosition === position - right)
-    socialMediaPosition.style.position = "right";
+  let role = variables.role;
+  let defaultRole = "Your Role";
+  if (role === null) role = defaultRole;
+
+  let country = variables.country;
+  let defaultCountry = "Country";
+  if (country === null) country = defaultCountry;
+
+  let city = variables.city;
+  let defaultCity = "City";
+  if (city === null) city = defaultCity;
+
+  let position = variables.socialMediaPosition;
+  if (position === "Left") {
+    position === "position-left";
+  } else if (position === "Right") {
+    position === "position-right";
+  }
+
+  let twitter = variables.twitter;
+  let defaultTwitter = " ";
+  if (twitter === null) twitter = defaultTwitter;
+
+  let github = variables.github;
+  let defaultGithub = " ";
+  if (github === null) github = defaultGithub;
+
+  let linkedin = variables.linkedin;
+  let defaultLinkedin = " ";
+  if (linkedin === null) linkedin = defaultLinkedin;
+
+  let instagram = variables.instagram;
+  let defaultInstagram = " ";
+  if (instagram === null) instagram = defaultInstagram;
 
   // reset the website body with the new html output
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
           <img src="${variables.avatarURL}" class="photo" />
-          <h1>${name}</h1>
-          <h2>Web Developer</h2>
-          <h3>Miami, USA</h3>
-          <ul class="position-right">
-            <li><a href="https://twitter.com/4geeksacademy"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="https://github.com/4geeksacademy"><i class="fab fa-github"></i></a></li>
-            <li><a href="https://linkedin.com/school/4geeksacademy"><i class="fab fa-linkedin"></i></a></li>
-            <li><a href="https://instagram.com/4geeksacademy"><i class="fab fa-instagram"></i></a></li>
+          <h1>${name} ${lastName}</h1>
+          <h2>${role}</h2>
+          <h3>${city}, ${country}</h3>
+          <ul class="${position}">
+            <li><a href="https://twitter.com/4geeksacademy"><i class="fab fa-twitter"></i></a><p>${twitter}</p></li>
+            <li><a href="https://github.com/4geeksacademy"><i class="fab fa-github"></i></a><p>${github}</p></li>
+            <li><a href="https://linkedin.com/school/4geeksacademy"><i class="fab fa-linkedin"></i></a><p>${linkedin}</p></li>
+            <li><a href="https://instagram.com/4geeksacademy"><i class="fab fa-instagram"></i></a><p>${instagram}</p></li>
           </ul>
         </div>
     `;
